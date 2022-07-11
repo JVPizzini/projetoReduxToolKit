@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "projetoReduxToolKit",
+    "slug": "projetoReduxToolKit",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
