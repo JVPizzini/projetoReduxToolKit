@@ -25,15 +25,12 @@ export default function Application() {
 
         <View>
           <Text>{value}</Text>
+
           <Button title="Increment" onPress={() => dispatch(increment())} />
           <Button title="Decrement" onPress={() => dispatch(decrement())} />
           <Button
             title="incremente by amount"
             onPress={() => dispatch(incrementByAmount(12))}
-          />
-          <Button
-            title="decrement by amount"
-            onPress={() => dispatch(decrementByAmount(10))}
           />
           <Button
             title="decrement by amount"
