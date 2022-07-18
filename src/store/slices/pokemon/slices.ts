@@ -29,11 +29,7 @@ export const pokemonSlice = createSlice({
       state.isLoading = false;
     },
     setPokemons: (state, action: PayloadAction<LitsPokemonProps>) => {
-      // console.log(action);
-
       state.isLoading = false;
-      console.log(action.payload.page);
-      console.log(action.payload.pokemons);
       state.page = action.payload.page;
       state.pokemons = action.payload.pokemons;
     },

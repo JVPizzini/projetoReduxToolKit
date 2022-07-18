@@ -12,10 +12,7 @@ export const getPokemons =
     dispatch(startLoadingPokemons());
 
     try {
-      const { data } = await pokemonApi.get(
-        `/pokemon?limit=10&offset=${page * 10}`
-      );
-
+      const { data } = await pokemonApi.get(`/pokemon?limit=10&offset=${page}`);
       setTimeout(() => {
         dispatch(setPokemons({ pokemons: data.results, page: page + 1 }));
         dispatch(stopLoadingPokemons());
@@ -35,13 +32,12 @@ export const getPokemons =
   };
 
 export const getBackPagePokemons =
-  (page: number = 0): AppThunk =>
+  (page: number): AppThunk =>
   async (dispatch, _ /*getState*/) => {
     dispatch(startLoadingPokemons());
-
     try {
       const { data } = await pokemonApi.get(
-        `/pokemon?limit=10&offset=${page * 10}`
+        `/pokemon?limit=10&offset=${(page - 2) * 10}`
       );
 
       setTimeout(() => {
@@ -52,12 +48,4 @@ export const getBackPagePokemons =
       dispatch(stopLoadingPokemons());
       console.log(error);
     }
-
-    // dispatch(setPokemons({ pokemons: data.results, page: page + 1 }));
-
-    /*
-        -- sem axios --
-        const  response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${page * 10}`)
-        const data = await response.json();
-        */
   };
